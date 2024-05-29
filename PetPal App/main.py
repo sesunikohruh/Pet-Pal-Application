@@ -4,7 +4,6 @@ from PyQt5 import uic
 import mysql.connector
 import re
 
-
 class communicate(QObject):
     updateVet = pyqtSignal(list)
     updateAppointments = pyqtSignal(list)
@@ -15,7 +14,7 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -37,18 +36,16 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
             cursor.execute("DELETE FROM vets")
-            addVetQuery = "INSERT INTO vets (vetLicense, firstName, lastName, contactNo, sex) VALUES (%s, %s, %s, %s, %s)"
+            addVetQuery = "INSERT INTO vets (vetLicense, firstName, lastName, contactNo, sexOr) VALUES (%s, %s, %s, %s, %s)"
 
             for veterinarian in veterinarians:
-
                 vetLicense, firstName, lastName, contactNo, sex = veterinarian
                 cursor.execute(addVetQuery, (vetLicense, firstName, lastName, contactNo, sex))
-
             connection.commit()
 
         except mysql.connector.Error as err:
@@ -59,23 +56,17 @@ class databaseHandler():
                 cursor.close()
                 connection.close()
 
-    def deleteVet(self):
-        
-        selectedVet = self.vetTable.selectionModel().selectedRows() # checks if any row is selected
-
-        vetToDelete = self.vetTable.item(selectedVet[0].row(),0).text()
-
-        # Delete the row from the database
+    def deleteVet(vetLicense):
         try:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
-            deleteVetQuery = "DELETE FROM your_table_name WHERE id = %s"
-            cursor.execute(deleteVetQuery, (vetToDelete,))
+            deleteVetQuery = "DELETE FROM vets WHERE vetLicense = %s"
+            cursor.execute(deleteVetQuery, (vetLicense,))
             connection.commit()
         except mysql.connector.Error as error:
             print(f"Failed to delete row from MySQL table: {error}")
@@ -90,7 +81,7 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -130,7 +121,7 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -142,7 +133,7 @@ class databaseHandler():
                 lastName, 
                 contactNo, 
                 address, 
-                sex
+                sexOr
             ) VALUES (%s, %s, %s, %s, %s, %s)"""
 
             for client in clients:
@@ -158,28 +149,20 @@ class databaseHandler():
                 cursor.close()
                 connection.close()
 
-    def deleteClient(petpal_clinic, clients):
-
-        try:  # Connect to Database
-
+    def deleteClient(clientID):
+        try:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
-
             cursor = connection.cursor()
-
-            deleteClientQuery = """DELETE FROM clients"""
-
-            cursor.execute(deleteClientQuery)
-
+            deleteVetQuery = "DELETE FROM clients WHERE clientID = %s"
+            cursor.execute(deleteVetQuery, (clientID,))
             connection.commit()
-
         except mysql.connector.Error as error:
             print(f"Failed to delete row from MySQL table: {error}")
-
         finally:
             if connection.is_connected():
                 cursor.close()
@@ -192,7 +175,7 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -233,12 +216,11 @@ class databaseHandler():
 
     # PETS function
     def addPets(pets):
-        print(pets)
         try:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -246,20 +228,20 @@ class databaseHandler():
             addPetQuery = """
             INSERT INTO pets (
                 petID,
-                ownerID,
+                clientID,
                 ownerName,
-                petName,
+                name,
                 species,
                 breed,
                 birthDate,
-                sex,
-                status,
+                sexOr,
+                status
             ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
 
             for pet in pets:
-                petID, ownerID, ownerName, petName, species, breed, birthDate, sex, status = pet
-                cursor.execute(addPetQuery,(petID, ownerID, ownerName, petName, species, breed, birthDate, sex, status))
+                petID, clientID, ownerName, name, species, breed, birthDate, sexOr, status = pet
+                cursor.execute(addPetQuery,(petID, clientID, ownerName, name, species, breed, birthDate, sexOr, status))
             connection.commit()
 
         except mysql.connector.Error as err:
@@ -270,28 +252,20 @@ class databaseHandler():
                 cursor.close()
                 connection.close()
 
-    def deletePet(petpal_clinic, pets):
-
-        try:  # Connect to Database
-
+    def deletePet(petID):
+        try:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
-
             cursor = connection.cursor()
-
-            deletePetQuery = """DELETE FROM pets"""
-
-            cursor.execute(deletePetQuery)
-
+            deleteVetQuery = "DELETE FROM pets WHERE petID = %s"
+            cursor.execute(deleteVetQuery, (petID,))
             connection.commit()
-
         except mysql.connector.Error as error:
             print(f"Failed to delete row from MySQL table: {error}")
-
         finally:
             if connection.is_connected():
                 cursor.close()
@@ -303,7 +277,7 @@ class databaseHandler():
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
@@ -344,35 +318,36 @@ class databaseHandler():
     # --------------------------------------------------------------------------------------------------------------------------------
 
     # APPOINTMENTS function
-    def addAppointment(appointments):
+    def addAppointments(appointments):
         try:
             connection = mysql.connector.connect(
                 host='localhost',
                 user='root',
-                password='admin123',
+                password='password',
                 database='petpal_clinic'
             )
             cursor = connection.cursor()
-            cursor.execute("TRUNCATE TABLE appointments")
-            addAppointmentQuery = """
+            cursor.execute("DELETE FROM appointments")
+            addPetQuery = """
             INSERT INTO appointments (
-                appointmentCode, 
-                requesteeID, 
-                attendingVet, 
-                petID, 
-                requesteeName,
-                attendingVetName,
-                petName,
+                appointmentCode,
                 date,
-                timeSched,
+                schedule,
                 service,
-                status
+                status,
+                vetLicense,
+                clientID,
+                petID,
+                vetName,
+                clientName,
+                petName
             ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
             """
 
             for appointment in appointments:
-                appointmentCode, requesteeID, attendingVet, petID, requesteeName, attendingVetName, petName, date,timeSched,service,status = appointment
-                cursor.execute(addAppointmentQuery,(appointmentCode, requesteeID, attendingVet, petID, requesteeName, attendingVetName, petName, date,timeSched,service,status))
+                appointmentCode, date, schedule, service, status, vetLicense, clientID, petID, vetName, clientName, petName = appointment
+                cursor.execute(addPetQuery,
+                               (appointmentCode, date, schedule, service, status, vetLicense, clientID, petID, vetName, clientName, petName))
             connection.commit()
 
         except mysql.connector.Error as err:
@@ -383,19 +358,28 @@ class databaseHandler():
                 cursor.close()
                 connection.close()
 
-class bookingWindow(QMainWindow):
-
-    def __init__(self):
-
-        super(mainWindow, self).__init__()
-        uic.loadUi("bookApptmntWindow.ui", self)
-        self.show()
-
+    def deleteAppointment(appointmentCode):
+        try:
+            connection = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='password',
+                database='petpal_clinic'
+            )
+            cursor = connection.cursor()
+            deleteVetQuery = "DELETE FROM appointments WHERE appointmentCode = %s"
+            cursor.execute(deleteVetQuery, (appointmentCode,))
+            connection.commit()
+        except mysql.connector.Error as error:
+            print(f"Failed to delete row from MySQL table: {error}")
+        finally:
+            if connection.is_connected():
+                cursor.close()
+                connection.close()
 
 class mainWindow(QMainWindow):
 
     def __init__(self):
-
         super(mainWindow, self).__init__()
         uic.loadUi("mainWindow.ui", self)
         self.show()
@@ -410,24 +394,22 @@ class mainWindow(QMainWindow):
             clientID = client[0]
             self.ownerID.addItem(str(clientID))
 
+        for client in self.clients:
+            clientID = client[0]
+            self.clientID.addItem(str(clientID))
+
         for veterinarian in self.veterinarians:
             vetLicense = veterinarian[0]
-            self.mainVet.addItem(str(vetLicense))
+            self.vetLicense.addItem(str(vetLicense))
 
         for pet in self.pets:
-            petID = petID[0]
+            petID = pet[0]
             self.petID.addItem(str(petID))
-
-        for appointment in self.appointments:
-            appointmentCode = appointmentCode[0]
-            self.appointmentCode.addItem(str(appointmentCode))
 
         self.homeButton.clicked.connect(self.homeClicked)
         self.clientButton.clicked.connect(self.clientClicked)
         self.petButton.clicked.connect(self.petClicked)
         self.vetButton.clicked.connect(self.vetClicked)
-        self.bookAppointmentButton.clicked.connect(self.bookAppointmentClicked)
-        self.deleteVetButton.clicked.connect(self.deleteVetClicked)
 
         addVetButton = self.stackedWidget.findChild(QPushButton, 'addButton')
         addVetButton.clicked.connect(self.addVetClicked)
@@ -435,17 +417,27 @@ class mainWindow(QMainWindow):
         addClientButton.clicked.connect(self.addClientClicked)
         addPetButton =self.stackedWidget.findChild(QPushButton, 'addPetButton')
         addPetButton.clicked.connect(self.addPetClicked)
-        bookAppointmentButton = self.frame.findChild(QPushButton, 'bookAppointmentButton')
-        bookAppointmentButton.clicked.connect(self.bookAppointmentClicked)
+        addAppointmentButton = self.stackedWidget.findChild(QPushButton, 'addAppointmentButton')
+        addAppointmentButton.clicked.connect(self.addAppointmentClicked)
+
+        deleteVetButton = self.stackedWidget.findChild(QPushButton, 'deleteVetButton')
+        deleteVetButton.clicked.connect(self.deleteVetClicked)
+        deleteClientButton = self.stackedWidget.findChild(QPushButton, 'deleteClientButton')
+        deleteClientButton.clicked.connect(self.deleteClientClicked)
+        deletePetButton = self.stackedWidget.findChild(QPushButton, 'deletePetButton')
+        deletePetButton.clicked.connect(self.deletePetClicked)
+        deleteAppointment = self.stackedWidget.findChild(QPushButton, 'deleteAppointment')
+        deleteAppointment.clicked.connect(self.deleteAppointmentClicked)
 
         self.readVet()
         self.readClients()
         self.readPets()
-        self.readAppts()
+        self.readAppointments()
 
     # DISPLAY DATABASE ---------------------------------------------------------------------------------------------
 
     def readVet(self):
+        self.veterinarians = databaseHandler.fetchData("vets")
         self.vetTable.setRowCount(0)
         self.vetTable.setColumnCount(5)
 
@@ -481,7 +473,7 @@ class mainWindow(QMainWindow):
     def readPets(self):
         self.pets = databaseHandler.fetchData("pets")
         self.petTable.setRowCount(0)
-        self.petTable.setColumnCount(10)
+        self.petTable.setColumnCount(9)
 
         for pet in self.pets:
             row_position = self.petTable.rowCount()
@@ -495,18 +487,18 @@ class mainWindow(QMainWindow):
 
         self.petTable.horizontalHeader()
     
-    def readAppts(self):
+    def readAppointments(self):
         self.appointments = databaseHandler.fetchData("appointments")
         self.apptTable.setRowCount(0)
-        self.apptTable.setColumnCount(8)
+        self.apptTable.setColumnCount(11)
 
         for appointment in self.appointments:
             row_position = self.apptTable.rowCount()
             self.apptTable.insertRow(row_position)
 
-            appointmentCode, requesteeID, attendingVet, petID, requesteeName, attendingVetName, petName, date,timeSched,service,status = appointment
+            appointmentCode, date, schedule, service, status, vetLicense, clientID, petID, vetName, clientName, petName = appointment
             items = [QTableWidgetItem(str(item)) for item in
-                     [appointmentCode, requesteeID, attendingVet, petID, requesteeName, attendingVetName, petName, date,timeSched,service,status]]
+                     [appointmentCode, date, schedule, service, status, vetLicense, clientID, petID, vetName, clientName, petName]]
             for i, item in enumerate(items):
                 self.apptTable.setItem(row_position, i, item)
 
@@ -525,12 +517,6 @@ class mainWindow(QMainWindow):
 
     def vetClicked(self):
         self.stackedWidget.setCurrentIndex(3)
-    
-    def bookAppointmentClicked(self):
-        
-        # Create an instance of bookAppointmentWindow and show it
-        self.bookingWindow = bookAppointmentWindow()
-        self.bookingWindow.show()
 
     def addVetClicked(self): # Add New Vet Button
 
@@ -582,7 +568,7 @@ class mainWindow(QMainWindow):
 
         petID = None
         ownerID= self.ownerID.currentText()
-        ownerName = None
+        ownerName = self.setClientNameBasedOnID(ownerID)
         petName = self.petName.text()
         species = self.species.currentText()
         breed = self.breed.text()
@@ -607,52 +593,134 @@ class mainWindow(QMainWindow):
         self.breed.clear() 
         self.birthDate.clear()
         self.sex.setCurrentIndex(-1) 
-        self.status.setCurrentIndex(-1) 
+        self.status.setCurrentIndex(-1)
+
+    def addAppointmentClicked(self):
+        appointmentCode = None
+        date = self.date.text()
+        schedule = self.schedule.currentText()
+        service = self.service.currentText()
+        status = self.statusAppointment.currentText()
+        vetLicense = self.vetLicense.currentText()
+        clientID = self.clientID.currentText()
+        petID = self.petID.currentText()
+        vetName = self.setVetNameBasedOnID(vetLicense)
+        clientName = self.setClientNameBasedOnID(clientID)
+        petName = self.setPetNameBasedOnID(petID)
+
+        newAppointment = (appointmentCode, date, schedule, service, status, vetLicense, clientID, petID, vetName, clientName, petName)
+        self.appointments.append(newAppointment)
+        databaseHandler.addAppointments(self.appointments)
+        self.readAppointments()
 
     def deleteVetClicked(self):
+        selectedVet = self.vetTable.selectionModel().selectedRows()
 
-        selectedVet = self.vetTable.selectionModel().selectedRows() # checks if any row is selected
-        
         if not selectedVet:
             QMessageBox.warning(self, "No Selection", "Please select a vet to delete.")
             return
-        
-        # Confirm deletion
         confirmation = QMessageBox.question(self, "Confirm Deletion",
-                                    "Are you sure you want to delete the selected vet?",
-                                    QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+                                            "Are you sure you want to delete the selected vet?",
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if confirmation != QMessageBox.Yes:
             return
-        
-        vetToDelete = self.vetTable.item(selectedVet[0].row(),0).text()
 
         for index in selectedVet:
-            vetLicense = self.vetTable.model().data(index, Qt.DisplayRole)
-            
+            vetLicense = self.vetTable.item(index.row(), 0).text()
             try:
-                # Attempt to delete the vet from the database
                 databaseHandler.deleteVet(vetLicense)
-                
-                # Remove the row from the table view
-                for index in reversed(selectedVet):  # Iterate in reverse to avoid index shifting
-                    self.vetTable.removeRow(index.row())
-                
+                self.readVet()
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to delete vet: {e}")
-                break  # Stop processing further deletions on error
-            
-        else:
-            # Refresh the vet list if all deletions were successful
-            self.readVet()
-            QMessageBox.information(self, "Success", "Selected vets deleted successfully.")
+                break
 
-class bookAppointmentWindow(QMainWindow):
+    def deleteClientClicked(self):
+        selectedClient = self.clientTable.selectionModel().selectedRows()
 
-    def __init__(self):
-        super(bookAppointmentWindow, self).__init__()
-        uic.loadUi("bookApptmntWindow.ui", self)
-        self.show()
+        if not selectedClient:
+            QMessageBox.warning(self, "No Selection", "Please select a client to delete.")
+            return
+        confirmation = QMessageBox.question(self, "Confirm Deletion",
+                                            "Are you sure you want to delete the selected client?",
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if confirmation != QMessageBox.Yes:
+            return
 
+        for index in selectedClient:
+            clientID = self.clientTable.item(index.row(), 0).text()
+            try:
+                databaseHandler.deleteClient(clientID)
+                self.readClients()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to delete client: {e}")
+                break
+
+    def deletePetClicked(self):
+        selectedPet = self.petTable.selectionModel().selectedRows()
+
+        if not selectedPet:
+            QMessageBox.warning(self, "No Selection", "Please select a pet to delete.")
+            return
+        confirmation = QMessageBox.question(self, "Confirm Deletion",
+                                            "Are you sure you want to delete the selected pet?",
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if confirmation != QMessageBox.Yes:
+            return
+
+        for index in selectedPet:
+            petID = self.petTable.item(index.row(), 0).text()
+            try:
+                databaseHandler.deletePet(petID)
+                self.readPets()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to delete pet: {e}")
+
+    def deleteAppointmentClicked(self):
+        selectedAppt = self.apptTable.selectionModel().selectedRows()
+
+        if not selectedAppt:
+            QMessageBox.warning(self, "No Selection", "Please select an appointment to delete.")
+            return
+        confirmation = QMessageBox.question(self, "Confirm Deletion",
+                                            "Are you sure you want to delete the selected appointment?",
+                                            QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+        if confirmation != QMessageBox.Yes:
+            return
+
+        for index in selectedAppt:
+            appointmentCode = self.apptTable.item(index.row(), 0).text()
+            try:
+                databaseHandler.deleteAppointment(appointmentCode)
+                self.readAppointments()
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"Failed to delete appointment: {e}")
+
+    def setVetNameBasedOnID(self, vetIdentification):
+        for veterinarian in self.veterinarians:
+            vetLicense, firstName, lastName, contactNo, sex = veterinarian
+            if str(vetLicense) == vetIdentification:
+                self.vetName = f"{firstName} {lastName}"
+                return self.vetName
+                break
+
+    # Example function to set clientName based on clientID
+    def setClientNameBasedOnID(self, clientIdentification):
+        for client in self.clients:
+            clientID, firstName, lastName, contactNo, address, sex = client
+            if str(clientID) == clientIdentification:
+                self.clientName = f"{firstName} {lastName}"
+                print(self.clientName)
+                return self.clientName
+                break
+
+    # Example function to set petName based on petID
+    def setPetNameBasedOnID(self, petIdentification):
+        for pet in self.pets:
+            petID, clientID, ownerName, petName, species, breed, birthDate, sex, status = pet
+            if str(petID) == petIdentification:
+                self.petName = petName
+                return self.petName
+                break
 
 def main():
     app = QApplication([])
