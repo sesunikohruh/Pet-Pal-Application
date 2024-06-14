@@ -334,7 +334,7 @@ background-color: rgb(255, 69, 69);</string>
       </rect>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page2Client">
       <property name="styleSheet">
@@ -639,23 +639,6 @@ background-color: rgb(239, 239, 239);</string>
        </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="editClientButton">
-       <property name="geometry">
-        <rect>
-         <x>540</x>
-         <y>30</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(231, 255, 75);</string>
-       </property>
-       <property name="text">
-        <string>Edit Client Details</string>
        </property>
       </widget>
       <widget class="QPushButton" name="deleteClientButton">
@@ -1187,23 +1170,6 @@ background-color: rgb(255, 79, 79);</string>
          <string>Delete Pet</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="editPetButton">
-        <property name="geometry">
-         <rect>
-          <x>310</x>
-          <y>10</y>
-          <width>121</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(231, 255, 75);</string>
-        </property>
-        <property name="text">
-         <string>Edit Pet Details</string>
-        </property>
-       </widget>
       </widget>
      </widget>
      <widget class="QWidget" name="page1Home">
@@ -1323,23 +1289,6 @@ border-right-color: rgb(0, 0, 0);</string>
           <string>petName</string>
          </property>
         </column>
-       </widget>
-       <widget class="QPushButton" name="editAppointment">
-        <property name="geometry">
-         <rect>
-          <x>430</x>
-          <y>230</y>
-          <width>131</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(231, 255, 75);</string>
-        </property>
-        <property name="text">
-         <string>Edit Appointment</string>
-        </property>
        </widget>
        <widget class="QPushButton" name="deleteAppointment">
         <property name="geometry">
@@ -1969,23 +1918,6 @@ background-color: rgb(255, 255, 255);</string>
          <string>Sex</string>
         </property>
        </column>
-      </widget>
-      <widget class="QPushButton" name="editVetButton">
-       <property name="geometry">
-        <rect>
-         <x>540</x>
-         <y>20</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(231, 255, 75);</string>
-       </property>
-       <property name="text">
-        <string>Edit Vet Details</string>
-       </property>
       </widget>
       <widget class="QPushButton" name="deleteVetButton">
        <property name="geometry">
