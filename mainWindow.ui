@@ -59,7 +59,7 @@
       <property name="font">
        <font>
         <family>Arial</family>
-        <pointsize>15</pointsize>
+        <pointsize>17</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
@@ -263,6 +263,22 @@ background-color: rgb(255, 69, 69);</string>
        <string>FURiend in me.</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>121</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>PetPal Logo.jpg</pixmap>
+      </property>
+     </widget>
     </widget>
     <widget class="QFrame" name="headerFrame">
      <property name="geometry">
@@ -327,9 +343,9 @@ background-color: rgb(255, 69, 69);</string>
       <widget class="QLabel" name="label1_3">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>30</y>
-         <width>371</width>
+         <x>10</x>
+         <y>120</y>
+         <width>201</width>
          <height>51</height>
         </rect>
        </property>
@@ -342,7 +358,10 @@ background-color: rgb(255, 69, 69);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(0, 0, 127);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::WinPanel</enum>
        </property>
        <property name="text">
         <string>CLIENTS</string>
@@ -352,7 +371,7 @@ background-color: rgb(255, 69, 69);</string>
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>70</y>
+         <y>60</y>
          <width>551</width>
          <height>531</height>
         </rect>
@@ -395,13 +414,13 @@ background-color: rgb(255, 69, 69);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>180</y>
+         <y>210</y>
          <width>201</width>
          <height>311</height>
         </rect>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Panel</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
@@ -583,11 +602,15 @@ background-color: rgb(141, 255, 139);</string>
        <widget class="QComboBox" name="clientSex">
         <property name="geometry">
          <rect>
-          <x>38</x>
+          <x>50</x>
           <y>220</y>
           <width>121</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
         </property>
         <item>
          <property name="text">
@@ -601,54 +624,11 @@ background-color: rgb(141, 255, 139);</string>
         </item>
        </widget>
       </widget>
-      <widget class="QLabel" name="label_13">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>40</y>
-         <width>81</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Search by:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_6">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>40</y>
-         <width>113</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-      </widget>
-      <widget class="QComboBox" name="comboBox_3">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>40</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-       </property>
-      </widget>
       <widget class="QScrollBar" name="verticalScrollBar_3">
        <property name="geometry">
         <rect>
-         <x>760</x>
-         <y>70</y>
+         <x>750</x>
+         <y>60</y>
          <width>20</width>
          <height>531</height>
         </rect>
@@ -665,7 +645,7 @@ background-color: rgb(239, 239, 239);</string>
        <property name="geometry">
         <rect>
          <x>540</x>
-         <y>40</y>
+         <y>30</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -682,7 +662,7 @@ background-color: rgb(231, 255, 75);</string>
        <property name="geometry">
         <rect>
          <x>680</x>
-         <y>40</y>
+         <y>30</y>
          <width>91</width>
          <height>21</height>
         </rect>
@@ -695,6 +675,27 @@ background-color: rgb(255, 79, 79);</string>
         <string>Delete Client</string>
        </property>
       </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>190</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>ADD A NEW CLIENT</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="page3Pet">
       <property name="styleSheet">
@@ -704,16 +705,16 @@ background-color: rgb(255, 79, 79);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>120</y>
+         <y>110</y>
          <width>211</width>
-         <height>391</height>
+         <height>491</height>
         </rect>
        </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(0, 0, 0);</string>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::Panel</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
@@ -899,7 +900,7 @@ background-color: rgb(255, 255, 255);</string>
         <property name="geometry">
          <rect>
           <x>40</x>
-          <y>340</y>
+          <y>410</y>
           <width>121</width>
           <height>29</height>
          </rect>
@@ -920,6 +921,10 @@ background-color: rgb(85, 255, 127);</string>
           <width>141</width>
           <height>21</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
         </property>
         <item>
          <property name="text">
@@ -964,6 +969,9 @@ background-color: rgb(85, 255, 127);</string>
           <height>13</height>
          </rect>
         </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
         <property name="text">
          <string>Status</string>
         </property>
@@ -976,6 +984,10 @@ background-color: rgb(85, 255, 127);</string>
           <width>141</width>
           <height>22</height>
          </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
         </property>
         <item>
          <property name="text">
@@ -998,12 +1010,29 @@ background-color: rgb(85, 255, 127);</string>
          </property>
         </item>
        </widget>
+       <widget class="QPushButton" name="editPetButton_2">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>450</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(231, 255, 75);</string>
+        </property>
+        <property name="text">
+         <string>Clear Fields</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="label_17">
        <property name="geometry">
         <rect>
          <x>50</x>
-         <y>90</y>
+         <y>80</y>
          <width>121</width>
          <height>20</height>
         </rect>
@@ -1023,10 +1052,10 @@ background-color: rgb(85, 255, 127);</string>
       <widget class="QLabel" name="label1_6">
        <property name="geometry">
         <rect>
-         <x>50</x>
+         <x>10</x>
          <y>20</y>
-         <width>141</width>
-         <height>61</height>
+         <width>211</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="font">
@@ -1038,11 +1067,17 @@ background-color: rgb(85, 255, 127);</string>
          <kerning>false</kerning>
         </font>
        </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
        <property name="styleSheet">
         <string notr="true">color: rgb(0, 0, 127);</string>
        </property>
+       <property name="frameShape">
+        <enum>QFrame::WinPanel</enum>
+       </property>
        <property name="text">
-        <string>PETS</string>
+        <string>   PETS</string>
        </property>
       </widget>
       <widget class="QFrame" name="frame_2">
@@ -1055,7 +1090,7 @@ background-color: rgb(85, 255, 127);</string>
         </rect>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::WinPanel</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
@@ -1117,54 +1152,6 @@ background-color: rgb(85, 255, 127);</string>
           <string>Status</string>
          </property>
         </column>
-        <column>
-         <property name="text">
-          <string>Vet</string>
-         </property>
-        </column>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit_7">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>10</y>
-          <width>113</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_15">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>81</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Search by:</string>
-        </property>
-       </widget>
-       <widget class="QComboBox" name="comboBox_5">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>10</y>
-          <width>91</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-        </property>
        </widget>
        <widget class="QScrollBar" name="verticalScrollBar_2">
         <property name="geometry">
@@ -1228,7 +1215,7 @@ background-color: rgb(231, 255, 75);</string>
         <rect>
          <x>20</x>
          <y>10</y>
-         <width>161</width>
+         <width>741</width>
          <height>51</height>
         </rect>
        </property>
@@ -1255,168 +1242,93 @@ background-color: rgb(231, 255, 75);</string>
          <height>531</height>
         </rect>
        </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(230, 230, 230);
 gridline-color: rgb(0, 0, 0);
 border-right-color: rgb(0, 0, 0);</string>
        </property>
        <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+        <enum>QFrame::WinPanel</enum>
        </property>
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <widget class="QLabel" name="label_5">
-        <property name="geometry">
-         <rect>
-          <x>560</x>
-          <y>490</y>
-          <width>91</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Overdue</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>20</y>
-          <width>113</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_4">
-        <property name="geometry">
-         <rect>
-          <x>420</x>
-          <y>490</y>
-          <width>91</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Due Today</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label">
+       <widget class="QTableWidget" name="apptTable">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>20</y>
-          <width>81</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Search by:</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="pushButton">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>480</y>
-          <width>201</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>Arial</family>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(20, 192, 255);
-alternate-background-color: rgb(63, 110, 127);</string>
-        </property>
-        <property name="text">
-         <string>Book New Appointment</string>
-        </property>
-       </widget>
-       <widget class="QScrollBar" name="verticalScrollBar">
-        <property name="geometry">
-         <rect>
-          <x>730</x>
-          <y>50</y>
-          <width>16</width>
-          <height>421</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(239, 239, 239);</string>
-        </property>
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>300</x>
-          <y>490</y>
-          <width>91</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);</string>
-        </property>
-        <property name="text">
-         <string>Pending</string>
-        </property>
-       </widget>
-       <widget class="QTableWidget" name="tableWidget">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>50</y>
+          <y>260</y>
           <width>731</width>
-          <height>421</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
+        <column>
+         <property name="text">
+          <string>Code</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Date</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Schedule</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Service</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Status</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>vetLicense</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>clientID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>petID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>vetName</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>clientName</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>petName</string>
+         </property>
+        </column>
        </widget>
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QPushButton" name="editAppointment">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>20</y>
-          <width>91</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="editClientButton_2">
-        <property name="geometry">
-         <rect>
-          <x>450</x>
-          <y>20</y>
+          <x>430</x>
+          <y>230</y>
           <width>131</width>
           <height>21</height>
          </rect>
@@ -1429,11 +1341,11 @@ background-color: rgb(231, 255, 75);</string>
          <string>Edit Appointment</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="deleteClientButton_2">
+       <widget class="QPushButton" name="deleteAppointment">
         <property name="geometry">
          <rect>
-          <x>590</x>
-          <y>20</y>
+          <x>570</x>
+          <y>230</y>
           <width>151</width>
           <height>21</height>
          </rect>
@@ -1446,17 +1358,335 @@ background-color: rgb(255, 79, 79);</string>
          <string>Delete Appointment</string>
         </property>
        </widget>
-       <zorder>label_5</zorder>
-       <zorder>lineEdit</zorder>
-       <zorder>label_4</zorder>
-       <zorder>label</zorder>
-       <zorder>pushButton</zorder>
-       <zorder>label_3</zorder>
-       <zorder>tableWidget</zorder>
-       <zorder>comboBox</zorder>
-       <zorder>verticalScrollBar</zorder>
-       <zorder>editClientButton_2</zorder>
-       <zorder>deleteClientButton_2</zorder>
+       <widget class="QDateEdit" name="date">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>40</y>
+          <width>101</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="schedule">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>40</y>
+          <width>261</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Morning (8:00 AM - 12:00 PM)</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Afternoon (1:00 PM - 5:00 PM)</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="service">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>100</y>
+          <width>261</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Check-Up</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>5 in 1 Vaccination</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Surgery</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Emergency Care</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Parvo Vaccination</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Rabies Vaccination</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Deworming</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Others</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="statusAppointment">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>160</y>
+          <width>261</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Pending</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Confirmed</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Canceled</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Completed</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="petID">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>160</y>
+          <width>111</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="clientID">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>100</y>
+          <width>111</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="vetLicense">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>40</y>
+          <width>111</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Date of Appointment</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>10</y>
+          <width>261</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Preferred Schedule of Appointment</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>70</y>
+          <width>261</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Reason for Service (Available Services)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>130</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>10</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Vet License</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>70</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Client ID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_26">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>130</y>
+          <width>71</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Pet ID</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="addAppointmentButton">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>140</y>
+          <width>151</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(85, 255, 127);</string>
+        </property>
+        <property name="text">
+         <string>ADD APPOINTMENT</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QLabel" name="label1_9">
        <property name="geometry">
@@ -1489,8 +1719,8 @@ background-color: rgb(255, 79, 79);</string>
       <widget class="QLabel" name="label1_4">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>30</y>
+         <x>30</x>
+         <y>90</y>
          <width>171</width>
          <height>51</height>
         </rect>
@@ -1504,17 +1734,20 @@ background-color: rgb(255, 79, 79);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
+        <string notr="true">color: rgb(0, 0, 127);</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::WinPanel</enum>
        </property>
        <property name="text">
-        <string>VET</string>
+        <string>  VET</string>
        </property>
       </widget>
       <widget class="QFrame" name="newVetDetailsFrame_2">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>90</y>
+         <y>190</y>
          <width>201</width>
          <height>301</height>
         </rect>
@@ -1699,49 +1932,6 @@ background-color: rgb(255, 255, 255);</string>
         </item>
        </widget>
       </widget>
-      <widget class="QComboBox" name="comboBox_9">
-       <property name="geometry">
-        <rect>
-         <x>300</x>
-         <y>20</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_33">
-       <property name="geometry">
-        <rect>
-         <x>220</x>
-         <y>20</y>
-         <width>81</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="text">
-        <string>Search by:</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_16">
-       <property name="geometry">
-        <rect>
-         <x>420</x>
-         <y>20</y>
-         <width>113</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-      </widget>
       <widget class="QTableWidget" name="vetTable">
        <property name="geometry">
         <rect>
@@ -1780,23 +1970,6 @@ background-color: rgb(255, 255, 255);</string>
         </property>
        </column>
       </widget>
-      <widget class="QScrollBar" name="verticalScrollBar_4">
-       <property name="geometry">
-        <rect>
-         <x>760</x>
-         <y>50</y>
-         <width>16</width>
-         <height>551</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(239, 239, 239);</string>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
       <widget class="QPushButton" name="editVetButton">
        <property name="geometry">
         <rect>
@@ -1829,6 +2002,27 @@ background-color: rgb(255, 79, 79);</string>
        </property>
        <property name="text">
         <string>Delete Vet</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>160</y>
+         <width>121</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Arial</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string>ADD A NEW VET</string>
        </property>
       </widget>
      </widget>
